@@ -1,0 +1,126 @@
+###Get the service document
+http://localhost:4004/odata/v4/CatalogService
+
+###Get sercice metadata
+http://localhost:4004/odata/v4/CatalogService/$metadata
+
+###Get employee data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+
+###Get the service document - V2
+http://localhost:4004/v2/odata/v4/CatalogService
+
+###Get sercice metadata - V2
+http://localhost:4004/v2/odata/v4/CatalogService/$metadata
+
+###Get employee data - V2
+http://localhost:4004/v2/odata/v4/CatalogService/EmployeeSet
+
+###Create employee data
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+
+{
+    "nameFirst": "Deepak",
+    "nameMiddle": null,
+    "nameLast": "Ghuge",
+    "nameInitials": null,
+    "sex": "M",
+    "language": "E",
+    "phoneNumber": "+919234234422",
+    "email": "deepak.ghuge@gmail.com",
+    "loginName": "SPRINGS",
+    "Currency_code": "USD",
+    "salaryAmount": 55549,
+    "accountNumber": "111222333",
+    "bankId": "51000065",
+    "bankName": "My Bank of Antioch"
+}
+
+###Get created data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/83baaded-0279-4976-b3b0-03e3f492d947
+
+###PUpdate data - PATCH
+PATCH  http://localhost:4004/odata/v4/CatalogService/EmployeeSet/83baaded-0279-4976-b3b0-03e3f492d947
+Content-Type: application/json
+
+{
+    "salaryAmount": 2000000,
+    "Currency_code": "EUR"
+}
+
+###Delete data - DELETE
+DELETE http://localhost:4004/odata/v4/CatalogService/EmployeeSet/a970c68e-b7d7-4509-98d2-16ccd3e8a40e
+
+###Get 1 employee data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet('02BD2137-0890-1EEA-A6C2-BB55C197E7FB')
+
+###another syntax
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C197E7FB
+
+###Get employee count
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+
+###Get middle 3 employees
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=3&$skip=2
+
+###Get filter
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=Currency_code eq 'EUR'
+
+###Get pattern filter
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=contains(nameFirst,'Su')
+
+###Select required columns
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$select=nameFirst,phoneNumber,salaryAmount
+
+
+###Get products
+http://localhost:4004/odata/v4/CatalogService/Products
+
+###Get product by id
+http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26EB8052
+
+###Get items for product
+http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26EB8052/To_Items
+
+###Get product and items at same time
+http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26EB8052?$expand=To_Items
+
+###Get all PO
+http://localhost:4004/odata/v4/CatalogService/POSet
+
+###Get metadata
+http://localhost:4004/odata/v4/CatalogService/$metadata
+
+###Get single PO
+http://localhost:4004/odata/v4/CatalogService/POSet(NODE_KEY='74867AD200E41EDBA5D8B0C98DC28052',IsActiveEntity=true)
+
+###Get expand items
+http://localhost:4004/odata/v4/CatalogService/POSet/74867AD200E41EDBA5D8B0C98DC28052?$expand=Items
+
+
+###Perform boost
+POST  http://localhost:4004/odata/v4/CatalogService/POSet/74867AD200E41EDBA5D8B0C98DC28052/CatalogService.boost
+Content-Type: application/json
+
+{}
+
+
+###Function test
+http://localhost:4004/odata/v4/CatalogService/largestOrder()
+
+
+###Create ORDER
+POST http://localhost:4004/odata/v4/CatalogService/POSet
+Content-Type: application/json
+
+{
+  "CURRENCY_code": "EUR",
+  "GROSS_AMOUNT": 3913.91,
+  "NET_AMOUNT": 3289,
+  "TAX_AMOUNT": 624.91,
+  "PO_ID": "300000000",
+  "PARTNER_GUID_NODE_KEY": "74867AD200E41EDBA5D8B06885B04052",
+  "LIFECYCLE_STATUS": "N",
+  "OVERALL_STATUS": "N"
+}

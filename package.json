@@ -6,16 +6,19 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/hana": "^1",
+    "@sap/approuter": "^16.7.1",
     "@sap/cds": "^8",
     "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "@sap/xssec": "^4",
     "express": "^4",
     "git": "^0.1.5",
-    "uuid": "^10.0.0",
-    "@cap-js/hana": "^1"
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@cap-js/cds-types": "^0.6",
     "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
     "@sap/ux-specification": "^1.120.17"
   },
   "scripts": {
@@ -24,5 +27,11 @@
   },
   "sapux": [
     "app/purchaseorderapp"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "auth": "xsuaa",
+      "db": "hana"
+    }
+  }
 }

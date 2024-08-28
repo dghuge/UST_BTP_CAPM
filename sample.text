@@ -2,3 +2,30 @@ dawdawraw
 BAS code change in line 2
 vs code change in line 2
 another chages
+
+
+      config:
+        xsappname: mycapapp-${org}-${space}
+        tenant-mode: dedicated
+
+
+{
+        "kind": "mocked",
+        "users": {
+          "deepak": {
+            "roles": [
+              "Admin"
+            ],
+            "attr": {
+              "BankName": "My Bank of New York"
+            }
+          },
+          "kiran": {
+            "roles": [
+              "Viewer"
+            ]
+          }
+        }
+      }
+
+      Start: node node_modules/@sap/hdi-deploy/deploy.js --use-hdb

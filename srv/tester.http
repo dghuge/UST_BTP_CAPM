@@ -3,6 +3,7 @@ http://localhost:4004/odata/v4/CatalogService
 
 ###Get sercice metadata
 http://localhost:4004/odata/v4/CatalogService/$metadata
+Authorization: deepak
 
 ###Get employee data
 http://localhost:4004/odata/v4/CatalogService/EmployeeSet
